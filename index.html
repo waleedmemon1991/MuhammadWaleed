@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Waleed | Gourmet Food Brand Designer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --card-bg: #1c1c1e;
+            --primary-accent: #D94F04; /* Rich Food Orange/Red */
+            --gold-accent: #E0A96D;    /* Warm Amber Gold */
+            --text-light: #F5F5F7;
+            --text-dim: #A1A1A6;
+            
+            /* Modern Dark 3D Shadows */
+            --shadow-out: 8px 8px 18px #0a0a0a, -8px -8px 18px #26262a;
+            --shadow-in: inset 6px 6px 12px #0a0a0a, inset -6px -6px 12px #26262a;
+            --shadow-gold-glow: 0px 10px 25px rgba(224, 169, 109, 0.25);
+            --shadow-orange-glow: 0px 10px 25px rgba(217, 79, 4, 0.35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: var(--bg-dark);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            color: var(--primary-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        /* 3D Buttons */
+        .btn-3d {
+            padding: 14px 32px;
+            border-radius: 50px;
+            border: none;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-out);
+            color: var(--gold-accent);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .btn-3d:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-gold-glow);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: var(--primary-accent);
+            color: #fff;
+            box-shadow: var(--shadow-orange-glow);
+        }
+
+        .btn-primary:hover {
+            background: #f05a05;
+            box-shadow: 0px 12px 30px rgba(217, 79, 4, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold-accent);
+            color: var(--gold-accent);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--gold-accent);
+            color: #121212;
+            box-shadow: var(--shadow-gold-glow);
+        }
+
+        /* Shared Section Styles */
+        .section {
+            padding: 80px 8%;
+        }
+
+        .section-tag {
+            text-align: center;
+            color: var(--primary-accent);
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--gold-accent);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.05rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 8% 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2rem;
+            color: var(--text-light);
+            max-width: 900px;
+            margin: 0 auto 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--gold-accent);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 8% 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            padding: 50px;
+            border-radius: 25px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-out);
+            border: 1px solid rgba(224, 169, 109, 0.1);
+            text-align: center;
+        }
+
+        .about-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.3rem;
+            color: var(--gold-accent);
+            margin-bottom: 20px;
+        }
+
+        .about-card p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Stats Counter */
+        .stats-container {
+            padding: 40px 8% 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stats-box {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-out);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            color: var(--primary-accent);
+        }
+
+        .stat-item p {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 35px;
+        }
+
+        .card-3d {
+            padding: 35px 25px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-out);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .card-3d:hover {
+            transform: translateY(-5px);
+            border-color: rgba(217, 79, 4, 0.4);
+        }
+
+        .card-check {
+            font-size: 1.5rem;
+            color: var(--primary-accent);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .card-3d h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .card-3d p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Packages Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            padding: 50px 40px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-out);
+            border: 1px solid rgba(255,255,255,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-card-popular {
+            border: 2px solid var(--primary-accent);
+            position: relative;
+            box-shadow: var(--shadow-orange-glow);
+        }
+
+        .price-tag {
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .price-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .price-features {
+            list-style: none;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .price-features li {
+            margin-bottom: 12px;
+        }
+
+        .price-features li::before {
+            content: "•";
+            color: var(--gold-accent);
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        /* ARROW-CONTROLLED PORTFOLIO SLIDER & GRID */
+        .portfolio-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-scroll-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 10px;
+            scrollbar-width: none; /* Firefox hidden scrollbar */
+        }
+
+        .portfolio-scroll-container::-webkit-scrollbar {
+            display: none; /* Chrome/Safari hidden scrollbar */
+        }
+
+        .portfolio-thumb {
+            min-width: 180px;
+            height: 130px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-out);
+            border: 1px solid rgba(224, 169, 109, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .portfolio-thumb:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-accent);
+            box-shadow: var(--shadow-orange-glow);
+        }
+
+        .portfolio-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Nav Arrow Buttons */
+        .arrow-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--gold-accent);
+            color: var(--gold-accent);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: var(--shadow-out);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+        }
+
+        .arrow-btn:hover {
+            background: var(--primary-accent);
+            color: #fff;
+            border-color: var(--primary-accent);
+            box-shadow: var(--shadow-orange-glow);
+        }
+
+        .arrow-btn.left { left: -25px; }
+        .arrow-btn.right { right: -25px; }
+
+        /* LIGHTBOX POPUP */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.92);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox-content {
+            max-width: 85%;
+            max-height: 85%;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(217, 79, 4, 0.5);
+            border: 2px solid var(--gold-accent);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-accent);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 25px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-out);
+            border: 1px solid rgba(217, 79, 4, 0.2);
+        }
+
+        .contact h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        /* Footer & Credits */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            background-color: var(--bg-dark);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .developer-credit {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .developer-credit a {
+            color: var(--gold-accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .developer-credit a:hover {
+            color: var(--primary-accent);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .section-title { font-size: 2rem; }
+            .stats-box { flex-direction: column; gap: 30px; }
+            .nav-links { display: none; }
+            .arrow-btn.left { left: -10px; }
+            .arrow-btn.right { right: -10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav>
+        <div class="logo">Muhammad <span>Waleed</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#portfolio">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn-3d btn-primary">Hire Me</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Transforming Food Brands with <span>Mouth-Watering</span> Design 🍔🎨</h1>
+        <p>I turn hungry viewers into loyal customers through high-impact visual branding for restaurants, cafes, and food businesses.</p>
+        <div class="hero-btns">
+            <a href="#portfolio" class="btn-3d btn-primary">View My Work</a>
+            <a href="#contact" class="btn-3d">Let's Talk</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-card">
+            <h2>Design That Triggers Cravings</h2>
+            <p>
+                Hi! I’m <strong>Muhammad Waleed</strong> — a specialized Graphic Designer with <strong>1.5+ years of experience</strong> crafting high-converting visual identities for the food and restaurant industry. Having delivered <strong>50+ successful projects</strong>, I combine aesthetics with consumer psychology to help food businesses stand out and grow.
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-container">
+        <div class="stats-box">
+            <div class="stat-item">
+                <h2>1.5+</h2>
+                <p>Years Experience</p>
+            </div>
+            <div class="stat-item">
+                <h2>50+</h2>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <h2>100%</h2>
+                <p>Client Satisfaction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Do Best Section -->
+    <section id="services" class="section">
+        <div class="section-tag">WHAT I DO BEST</div>
+        <h2 class="section-title">Crafting Visual Identities for Restaurants & Food Businesses</h2>
+        <p class="section-desc">I help restaurants, cafés, and food brands stand out with appetizing visual designs that attract customers and increase sales.</p>
+        
+        <div class="services-grid">
+            <div class="card-3d">
+                <div class="card-check">✓</div>
+                <h3>Strategic Menu Psychology & Layouts</h3>
+                <p>High-converting menu layouts engineered to highlight your highest-margin dishes and boost sales.</p>
+            </div>
+            <div class="card-3d">
+                <div class="card-check">✓</div>
+                <h3>Appetizing Logo & Brand Identity</h3>
+                <p>Mouth-watering logos, brand guidelines, and color palettes designed specifically for culinary appeal.</p>
+            </div>
+            <div class="card-3d">
+                <div class="card-check">✓</div>
+                <h3>Engaging Social Media Visuals</h3>
+                <p>High-quality grid mockups, banners, and templates designed to drive engagement and foodie traffic.</p>
+            </div>
+            <div class="card-3d">
+                <div class="card-check">✓</div>
+                <h3>Fast Delivery & Unlimited Revisions</h3>
+                <p>Prompt communication, swift turnarounds, and 100% satisfaction guarantee for your brand's perfection.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="section">
+        <div class="section-tag">DESIGN SERVICES</div>
+        <h2 class="section-title">Flexible Packages for Brands<br>with Bigger Appetites</h2>
+
+        <div class="pricing-grid">
+            <!-- Package 1 -->
+            <div class="price-card">
+                <div>
+                    <div class="price-tag">START FOR ONE MONTH</div>
+                    <h3>Trial Starter Package</h3>
+                    <ul class="price-features">
+                        <li>10 Social Media Posts Design</li>
+                        <li>1 Mini Menu Redesign</li>
+                        <li>1 Month Trial Support</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn-3d btn-primary">Get Started</a>
+            </div>
+
+            <!-- Package 2 (Most Popular) -->
+            <div class="price-card price-card-popular">
+                <div>
+                    <div class="price-tag">MOST POPULAR</div>
+                    <h3>Brand Identity Package</h3>
+                    <ul class="price-features">
+                        <li>Complete Food Logo Design</li>
+                        <li>Brand Color Palette & Typography</li>
+                        <li>Business Card & Stationery Design</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn-3d btn-primary">Choose Plan</a>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="price-card">
+                <div>
+                    <div class="price-tag">&nbsp;</div>
+                    <h3>Complete Menu & Social Master</h3>
+                    <ul class="price-features">
+                        <li>Multi-page Restaurant Menu</li>
+                        <li>Full Month Social Media Grid Kit</li>
+                        <li>High-Resolution Print-Ready Files</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn-3d btn-outline">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arrow-Controlled Clean Portfolio Gallery -->
+    <section id="portfolio" class="section">
+        <div class="section-tag">MY PORTFOLIO</div>
+        <h2 class="section-title">Featured Works</h2>
+        <p class="section-desc">Use arrows to browse designs. Click any thumbnail to view in full screen.</p>
+
+        <div class="portfolio-wrapper">
+            <button class="arrow-btn left" onclick="scrollPortfolio(-1)">‹</button>
+            <div class="portfolio-scroll-container" id="portfolioContainer">
+                <script>
+                    const totalImages = 45;
+                    const container = document.getElementById('portfolioContainer');
+                    for (let i = 1; i <= totalImages; i++) {
+                        const thumb = document.createElement('div');
+                        thumb.className = 'portfolio-thumb';
+                        thumb.innerHTML = `<img src="image/GD${i}.jpeg" alt="GD${i}" onclick="openLightbox(this.src)">`;
+                        container.appendChild(thumb);
+                    }
+                </script>
+            </div>
+            <button class="arrow-btn right" onclick="scrollPortfolio(1)">›</button>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="Popup Image">
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-box">
+            <h2>Ready to Elevate Your Food Brand?</h2>
+            <p style="margin-bottom: 30px; color: var(--text-dim);">Let's collaborate to build an unforgettable culinary identity.</p>
+            <a href="mailto:your.email@example.com" class="btn-3d btn-primary">Get a Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Muhammad Waleed. All rights reserved.</p>
+        <div class="developer-credit">
+            Developed with ❤️ by <a href="https://www.linkedin.com/in/suleman-ahmed-4a83a8365" target="_blank">Suleman Ahmed</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript For Arrow Navigation & Lightbox -->
+    <script>
+        function scrollPortfolio(direction) {
+            const container = document.getElementById('portfolioContainer');
+            const scrollAmount = 400; // Left / Right scroll step
+            container.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        function openLightbox(src) {
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox-img').src = src;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
